@@ -1,0 +1,57 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    min-height: 100vh;
+    /* Chiều cao tối thiểu bằng 100% màn hình */
+    background-color: #f0f2f5;
+    /* Màu nền xám nhạt đặc trưng của Ant Design */
+    padding: 20px;
+}
+
+.table-card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.header-group {
+    margin-bottom: 30px;
+}
+
+.iconDelete {
+    color: red;
+}
+
+.warningCustomerCode {
+    color: #ff4d4f;
+}
+
+.CodeCustomerDetail {
+    color: #1890ff;
+}
+
+.PopupDeleteCustomer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inconWarringInPopupConfirmDelete {
+    font-size: 24px;
+    color: #df3838;
+}
+
+.textConfirDelete {
+    margin: 0;
+    font-weight: 500;
+}
+
+.PopupViewCustomerDetail {
+    margin-top: 20px;
+    text-align: right;
+}
