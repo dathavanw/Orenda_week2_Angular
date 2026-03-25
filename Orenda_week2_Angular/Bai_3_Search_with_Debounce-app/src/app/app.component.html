@@ -1,0 +1,18 @@
+<div class="timkiem">
+  <h1>Bài 3: Tìm kiếm với Debounce</h1>
+
+  <input class="input" #searchInput type="text" placeholder="Nhập từ khóa (ví dụ: Angular, React...)">
+
+  @if(isSearching){
+  <div style="margin-top: 10px; color: blue;">
+    Đang tìm kiếm...
+  </div>
+  }
+  <ul>
+    @for (item of results; track item) {
+    <li>
+      {{ item }}
+    </li>
+    }
+  </ul>
+</div>

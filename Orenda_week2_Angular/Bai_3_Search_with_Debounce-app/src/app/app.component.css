@@ -1,0 +1,25 @@
+.timkiem {
+    text-align: center;
+    margin-top: 50px;
+    font-family: sans-serif;
+}
+
+.input {
+    padding: 12px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    width: 300px;
+    margin: 0 auto;
+}

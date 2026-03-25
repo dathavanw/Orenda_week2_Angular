@@ -1,0 +1,13 @@
+.input {
+    text-align: center;
+    margin-top: 100px;
+    font-family: Arial, sans-serif;
+}
+
+.inputBasic {
+    padding: 12px;
+    width: 350px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}

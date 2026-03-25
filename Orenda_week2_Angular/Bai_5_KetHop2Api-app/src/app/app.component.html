@@ -1,0 +1,20 @@
+<div class="khung">
+  <h1>Bài 5: Kết hợp dữ liệu từ 2 API</h1>
+
+  @if (isLoading) {
+    <p>Đang đợi dữ liệu từ 2 api khác nhau...</p>
+  } @else {
+    <table class="bang">
+      <tr class="tieude">
+        <th>Tên nhân viên</th>
+        <th>Phòng ban</th>
+      </tr>
+      @for (item of userWithDepartment; track item.id) {
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.departmentName }}</td>
+        </tr>
+      }
+    </table>
+  }
+</div>

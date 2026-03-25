@@ -1,0 +1,22 @@
+.khung {
+    padding: 20px;
+    font-family: Arial;
+}
+
+.input {
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.bangNhanVien {
+    width: 400px;
+    border-collapse: collapse;
+}
+.bangNhanVien  {
+    width: 400px;
+    border-collapse: collapse;
+}
+.bangNhanVien td{
+    padding: 20px;
+}

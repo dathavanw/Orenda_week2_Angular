@@ -1,0 +1,17 @@
+.khung {
+    padding: 30px;
+    font-family: sans-serif;
+    max-width: 500px;
+}
+
+.text {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.trangthai {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}

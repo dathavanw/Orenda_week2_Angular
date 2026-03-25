@@ -1,0 +1,16 @@
+.khung {
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.bang {
+    border-collapse: collapse;
+    width: 400px;
+}
+.tieude{
+    background: #eee;
+    height: 30px;
+}
+.bang td {
+    padding: 10px;
+}

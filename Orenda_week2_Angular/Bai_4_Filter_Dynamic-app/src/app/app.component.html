@@ -1,0 +1,30 @@
+<div class="khung">
+  <h1>Bài 4: Bộ lọc nhân viên động</h1>
+
+  <input class="input" [formControl]="filterControl" placeholder="Nhập tên nhân viên để lọc...">
+
+  <table class="bangNhanVien">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Họ tên</th>
+        <th>Chức vụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (emp of finalEmployee | async; track emp.id) {
+      <tr>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.position }}</td>
+      </tr>
+      } @empty {
+      <tr>
+        <td colspan="4" style="text-align: center; padding: 10px;">
+          Không tìm thấy nhân viên nào!
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

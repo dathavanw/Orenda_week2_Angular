@@ -1,0 +1,16 @@
+<div style="padding: 20px; font-family: Arial;">
+  <h2>Bài 6: Refresh Token</h2>
+  
+  <p [style.color]="employees.length > 0 ? 'green' : 'red'">
+    <strong>Trạng thái:</strong> {{ statusMessage }}
+  </p>
+
+  @if (employees.length > 0) {
+    <ul>
+      @for (emp of employees; track emp.id) {
+        <li>{{ emp.id }} - {{ emp.name }}</li>
+      }
+    </ul>
+  }
+
+</div>

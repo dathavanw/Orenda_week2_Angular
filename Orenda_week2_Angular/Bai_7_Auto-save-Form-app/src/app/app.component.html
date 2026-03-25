@@ -1,0 +1,17 @@
+<div class="khung">
+  <h2>Soạn thảo bài viết</h2>
+  <p><i>(Hệ thống sẽ tự động lưu sau 1 giây bạn ngừng gõ)</i></p>
+
+  <form [formGroup]="postForm">
+    <textarea class="text" formControlName="content" rows="10" placeholder="Hãy nhập nội dung vào đây...">
+    </textarea>
+  </form>
+
+  <div class="trangthai">
+
+    <strong>Trạng thái:</strong> {{ saveStatus }}
+    @if(isSaving){
+    <span>Đang lưu</span>
+    }
+  </div>
+</div>
