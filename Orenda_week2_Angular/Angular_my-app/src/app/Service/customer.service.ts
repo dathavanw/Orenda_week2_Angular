@@ -11,7 +11,7 @@ export class CustomerService {
 
     /*
        Em giả lập 1 endpoint chứa danh sách khách hàng 
-       Sử dụng thư viện json-server để chạy file db.json 
+       Sử dụng thư viện json-server để chạy file db.json ạ 
        
        Cài đặt json-server:  npm install -g json-server@1.0.0-beta.15
        Chạy endpoint chứa dữ liệu: json-server --watch db.json --port 3000
