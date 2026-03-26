@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { fromEvent, of } from 'rxjs';
+import { SearchService } from './search.service';
 import {
   map,
   debounceTime,
@@ -26,15 +27,7 @@ export class AppComponent implements AfterViewInit {
   results: string[] = [];
   isSearching = false;
 
-  // Mock API Search 
-  mockSearchAPI(textSearch: string) {
-    console.log(`Đang gọi api cho từ khoá: "${textSearch}"`);
-    const allData = ['Angular', 'Angular Material', 'RxJS Basics', 'React JS', 'Vue JS'];
-    const filtered = allData.filter(item =>
-      item.toLowerCase().includes(textSearch.toLowerCase())
-    );
-    return of(filtered).pipe(delay(1000));
-  }
+  constructor(private searchService: SearchService) {}
 
   ngAfterViewInit() {
     fromEvent(this.searchInput.nativeElement, 'input').pipe(
@@ -50,7 +43,7 @@ export class AppComponent implements AfterViewInit {
           this.isSearching = false;
           return of([]); 
         }
-        return this.mockSearchAPI(term);
+        return this.searchService.mockSearchAPI(term);
       })
     ).subscribe(data => {
       this.results = data;

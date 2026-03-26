@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { forkJoin, of, delay } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User, Department, UserWithDept } from './data.model';
+import { UserWithDept } from './data.model';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -15,31 +16,15 @@ import { User, Department, UserWithDept } from './data.model';
 export class AppComponent implements OnInit {
   title = 'Bai_5_KetHop2Api-app';
 
-  // Trả về danh sách User
-  getUsers() {
-    const users: User[] = [
-      { id: 1, name: 'An', deptId: 101 },
-      { id: 2, name: 'Bình', deptId: 102 },
-      { id: 3, name: 'Chi', deptId: 101 }
-    ];
-    return of(users).pipe(delay(1000));
-  }
-
-  // Trả về danh sách phòng ban 
-  getDepartments() {
-    const depts: Department[] = [
-      { id: 101, name: 'Phòng Nhân Sự' },
-      { id: 102, name: 'Phòng Kỹ Thuật' }
-    ];
-    return of(depts).pipe(delay(2000));
-  }
-
   userWithDepartment: UserWithDept[] = [];
   isLoading = false;
 
+  constructor(private dataService: DataService) {}
+
+
   ngOnInit(): void {
     this.isLoading = true;
-    forkJoin([this.getUsers(), this.getDepartments()]).pipe(
+    forkJoin([this.dataService.getUsers(), this.dataService.getDepartments()]).pipe(
       map(([users, depts]) => {
         return users.map(user => {
           const dept = depts.find(d => d.id === user.deptId);
