@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class DataService {
     constructor(private router: Router) { }
     private accessToken = 'KEY_OLD';
-    private isRefreshTokenValid = false;  // thay đổi giá trị false để thấy refresh thất bại 
+    private isRefreshTokenValid = true;  // thay đổi giá trị false để thấy refresh thất bại 
 
 
     getEmployees(): Observable<Employee[]> {

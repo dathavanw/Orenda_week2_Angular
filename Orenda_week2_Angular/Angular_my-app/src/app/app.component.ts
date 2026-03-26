@@ -15,7 +15,9 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { CustomerService } from './Service/customer.service';
-
+import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
+import { catchError, map, Observable, of, switchMap, timer } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +41,7 @@ import { CustomerService } from './Service/customer.service';
   ],
 })
 export class AppComponent implements OnInit {
-  title = 'my-app';
+  title = 'Mannger Customer';
   isEdit = false;
   currentEditId: number | null = null;
   isVisibleDelete = false;
@@ -84,29 +86,39 @@ export class AppComponent implements OnInit {
     this.showModal();
   }
 
-  duplicateCodeValidator = (control: FormControl): { [key: string]: any } | null => {
-    if (!control.value) return null;
-    // Gọi hàm check từ service
-    const isDuplicate = this.customerService.checkDuplicateCode(control.value);
-    return isDuplicate ? { duplicated: true } : null;
-  };
+
+  duplicateCodeValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      if (!control.value) return of(null);
+
+      return timer(500).pipe(
+        switchMap(() => this.customerService.checkDuplicateCode(control.value)),
+        map((res: any[]) => {
+          const isDuplicate = res && res.length > 0;
+          return isDuplicate ? { duplicated: true } : null;
+        }),
+        first(),
+        catchError(() => of(null))
+      );
+    };
+  }
+
 
   handleOk(): void {
     if (this.validateForm.valid) {
       const formData = this.validateForm.getRawValue();
       if (this.isEdit) {
-        this.customerService.updateCustomer(this.currentEditId!, formData);
-        this.message.success('Cập nhật thông tin khách hàng thành công!');
+        this.customerService.updateCustomer(this.currentEditId!, formData).subscribe(() => {
+          this.message.success('Cập nhật thông tin khách hàng thành công!');
+        });
       }
       else {
-        this.customerService.addCustomer(formData);
-        this.pageIndex = 1; // Reset về trang 1 khi thêm mới
-        this.message.success('Thêm mới khách hàng thành công!');
+        this.customerService.addCustomer(formData).subscribe(() => {
+          this.pageIndex = 1; // Reset về trang 1 khi thêm mới
+          this.message.success('Thêm mới khách hàng thành công!');
+        });
       }
-      this.validateForm.reset();
-      this.isVisible = false;
-      this.total = this.customerService.getTotalCount();
-      this.loadDataFromServer(this.pageIndex, this.pageSize);
+      this.afterActionSuccess();
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -117,7 +129,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-   editCustomer(data: Customer): void {
+
+  editCustomer(data: Customer): void {
     this.isEdit = true; // Đánh dấu là đang Sửa
     this.currentEditId = data.id; // Lưu lại ID để biết lát nữa lưu đè vào đâu
     this.validateForm.controls['customerCode'].disable();
@@ -134,16 +147,18 @@ export class AppComponent implements OnInit {
     this.isVisible = false;
   }
 
+
   // 3. Hàm khi nhấn "OK" trên Popup Xóa (Thực hiện xóa thật)
   handleOkDelete(): void {
     if (this.idToDelete !== null) {
-      this.customerService.deleteCustomer(this.idToDelete);
-      this.total = this.customerService.getTotalCount();
-      this.isVisibleDelete = false;
-      this.loadDataFromServer(this.pageIndex, this.pageSize);
-      this.message.success('Đã xóa khách hàng khỏi hệ thống!');
+      this.customerService.deleteCustomer(this.idToDelete).subscribe(() => {
+        this.isVisibleDelete = false;
+        this.loadDataFromServer(this.pageIndex, this.pageSize);
+        this.message.success('Đã xóa khách hàng khỏi hệ thống!');
+      });
     }
   }
+
 
   displayData: Customer[] = [];
   loading = false;
@@ -153,25 +168,41 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDataFromServer(this.pageIndex, this.pageSize);
-    this.total = this.customerService.getTotalCount();
     this.validateForm = this.fb.group({
-      customerCode: [null, [Validators.required, this.duplicateCodeValidator]],
+      customerCode: [null, [Validators.required], [this.duplicateCodeValidator()]],
       fullName: [null, [Validators.required]],
       age: [null, [Validators.required]],
       address: [null, [Validators.required]]
     });
   }
 
+
   loadDataFromServer(pageIndex: number, pageSize: number): void {
     this.loading = true;
-    this.customerService.loadDataFromServer(pageIndex, pageSize).subscribe(data => {
-      this.displayData = data;
+    this.customerService.loadDataFromServer(pageIndex, pageSize).subscribe(res => {
+      const body = res.body;
+
+      if (body && body.data) {
+        this.displayData = body.data;
+        this.total = body.items;
+      } else {
+        this.displayData = body || [];
+        this.total = Number(res.headers.get('x-total-count')) || 0;
+      }
       this.loading = false;
-    })
+    });
   }
+
 
   onQueryParamsChange(params: any): void {
     const { pageIndex, pageSize } = params;
     this.loadDataFromServer(pageIndex, pageSize);
+  }
+
+
+  afterActionSuccess(): void {
+    this.validateForm.reset();
+    this.isVisible = false;
+    this.loadDataFromServer(this.pageIndex, this.pageSize);
   }
 }

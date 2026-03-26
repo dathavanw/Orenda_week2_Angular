@@ -15,7 +15,7 @@ import { AsyncPipe } from '@angular/common';
 
 export class AppComponent implements OnInit {
   title = 'countDown-app';
-  timeCountDown: number = 10;
+  timeCountDown: number = 60;
   countdown$!: Observable<string>
   constructor(private countdownService: CountdownService) {}
 
