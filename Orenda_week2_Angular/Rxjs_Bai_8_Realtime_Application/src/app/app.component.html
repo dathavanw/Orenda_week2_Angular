@@ -1,0 +1,4 @@
+<div class="card">
+      <h2>Thông báo mới: {{ notificationService.unreadCount$ | async }}</h2>
+      <button (click)="onReset()">Đánh dấu đã đọc</button>
+</div>

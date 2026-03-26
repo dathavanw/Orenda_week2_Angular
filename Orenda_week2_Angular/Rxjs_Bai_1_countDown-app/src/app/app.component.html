@@ -1,0 +1,10 @@
+    <div class="countDown">
+  <h1>Đồng hồ đếm ngược</h1>
+
+  @if (countdown$ | async; as time) {
+    <h2>{{ time }} giây</h2>
+  
+    @if (time === '0') {
+      <p>Hết giờ rồi!</p>
+      }  }
+</div>
