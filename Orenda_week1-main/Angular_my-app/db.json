@@ -1,0 +1,374 @@
+{
+  "customers": [
+    {
+      "id": "4",
+      "customerCode": "KH004",
+      "fullName": "Phạm Thanh Thảo",
+      "age": 28,
+      "address": "Cần Thơ"
+    },
+    {
+      "id": "5",
+      "customerCode": "KH005",
+      "fullName": "Hoàng Văn Đức",
+      "age": 35,
+      "address": "Hải Phòng"
+    },
+    {
+      "id": "6",
+      "customerCode": "KH006",
+      "fullName": "Đặng Minh Anh",
+      "age": 19,
+      "address": "Huế"
+    },
+    {
+      "customerCode": "KH009",
+      "fullName": "Vũ Tuyết Mai",
+      "age": 56,
+      "address": "Quảng Ninh 9",
+      "id": "9"
+    },
+    {
+      "id": "10",
+      "customerCode": "KH010",
+      "fullName": "Lý Gia Hưng",
+      "age": 24,
+      "address": "Đồng Nai"
+    },
+    {
+      "customerCode": "KH002",
+      "fullName": "Nguyễn Văn Cung",
+      "age": 23,
+      "address": "Nam Định 1",
+      "id": "mZlijNUpx0M"
+    },
+    {
+      "customerCode": "KH0022",
+      "fullName": "Phạm Thị Ngoan ",
+      "age": 24,
+      "address": "Lạng Sơn",
+      "id": "FOeZXmOmzsg"
+    },
+    {
+      "customerCode": "KH12",
+      "fullName": "Nguyễn Văn Ba 1",
+      "age": 46,
+      "address": "Ninh Bình 1",
+      "id": "Xz8jh9WijWo"
+    },
+    {
+      "customerCode": "KH123",
+      "fullName": "Phạm Thị Vân Anh",
+      "age": 58,
+      "address": "Hà Nam ",
+      "id": "L71NMCgsLFo"
+    },
+    {
+      "id": "19",
+      "customerCode": "KH019",
+      "fullName": "Trần Đại Nghĩa",
+      "age": 15,
+      "address": "Nghệ An",
+      "guardianName": "Trần Văn An",
+      "guardianPhone": "0334455667"
+    },
+    {
+      "id": "20",
+      "customerCode": "KH020",
+      "fullName": "Võ Thị Sáu",
+      "age": 18,
+      "address": "Bà Rịa"
+    },
+    {
+      "id": "21",
+      "customerCode": "KH021",
+      "fullName": "Phan Bội Châu",
+      "age": 50,
+      "address": "Phan Thiết"
+    },
+    {
+      "id": "22",
+      "customerCode": "KH022",
+      "fullName": "Nguyễn Thái Học",
+      "age": 29,
+      "address": "Yên Bái"
+    },
+    {
+      "id": "23",
+      "customerCode": "KH023",
+      "fullName": "Lương Thế Vinh",
+      "age": 38,
+      "address": "Nam Định"
+    },
+    {
+      "id": "24",
+      "customerCode": "KH024",
+      "fullName": "Chu Văn An",
+      "age": 60,
+      "address": "Thanh Trì"
+    },
+    {
+      "id": "25",
+      "customerCode": "KH025",
+      "fullName": "Trương Hán Siêu",
+      "age": 17,
+      "address": "Ninh Bình",
+      "guardianName": "Trương Văn B",
+      "guardianPhone": "0888999000"
+    },
+    {
+      "id": "26",
+      "customerCode": "KH026",
+      "fullName": "Nguyễn Du",
+      "age": 45,
+      "address": "Hà Tĩnh"
+    },
+    {
+      "id": "27",
+      "customerCode": "KH027",
+      "fullName": "Hồ Xuân Hương",
+      "age": 31,
+      "address": "Nghệ An"
+    },
+    {
+      "id": "28",
+      "customerCode": "KH028",
+      "fullName": "Nguyễn Trãi",
+      "age": 55,
+      "address": "Hải Dương"
+    },
+    {
+      "id": "29",
+      "customerCode": "KH029",
+      "fullName": "Lê Lợi",
+      "age": 42,
+      "address": "Thanh Hóa"
+    },
+    {
+      "id": "30",
+      "customerCode": "KH030",
+      "fullName": "Trần Hưng Đạo",
+      "age": 48,
+      "address": "Nam Định"
+    },
+    {
+      "id": "31",
+      "customerCode": "KH031",
+      "fullName": "Nguyễn Huệ",
+      "age": 37,
+      "address": "Bình Định"
+    },
+    {
+      "id": "32",
+      "customerCode": "KH032",
+      "fullName": "Đinh Tiên Hoàng",
+      "age": 41,
+      "address": "Ninh Bình"
+    },
+    {
+      "id": "33",
+      "customerCode": "KH033",
+      "fullName": "Lý Thái Tổ",
+      "age": 16,
+      "address": "Bắc Ninh",
+      "guardianName": "Lý Văn Công",
+      "guardianPhone": "0123444555"
+    },
+    {
+      "id": "34",
+      "customerCode": "KH034",
+      "fullName": "Ngô Quyền",
+      "age": 39,
+      "address": "Hải Phòng"
+    },
+    {
+      "id": "35",
+      "customerCode": "KH035",
+      "fullName": "Hai Bà Trưng",
+      "age": 34,
+      "address": "Mê Linh"
+    },
+    {
+      "id": "36",
+      "customerCode": "KH036",
+      "fullName": "Lê Văn Hưu",
+      "age": 27,
+      "address": "Thanh Hóa"
+    },
+    {
+      "id": "37",
+      "customerCode": "KH037",
+      "fullName": "Nguyễn Bỉnh Khiêm",
+      "age": 65,
+      "address": "Hải Phòng"
+    },
+    {
+      "id": "38",
+      "customerCode": "KH038",
+      "fullName": "Nguyễn Khuyến",
+      "age": 70,
+      "address": "Hà Nam"
+    },
+    {
+      "id": "39",
+      "customerCode": "KH039",
+      "fullName": "Tú Xương",
+      "age": 32,
+      "address": "Nam Định"
+    },
+    {
+      "id": "40",
+      "customerCode": "KH040",
+      "fullName": "Xuân Diệu",
+      "age": 26,
+      "address": "Quy Nhơn"
+    },
+    {
+      "id": "41",
+      "customerCode": "KH041",
+      "fullName": "Huy Cận",
+      "age": 28,
+      "address": "Hà Tĩnh"
+    },
+    {
+      "id": "42",
+      "customerCode": "KH042",
+      "fullName": "Hàn Mặc Tử",
+      "age": 14,
+      "address": "Quảng Bình",
+      "guardianName": "Nguyễn Trọng Trí",
+      "guardianPhone": "0944556677"
+    },
+    {
+      "id": "43",
+      "customerCode": "KH043",
+      "fullName": "Chế Lan Viên",
+      "age": 24,
+      "address": "Quảng Trị"
+    },
+    {
+      "id": "44",
+      "customerCode": "KH044",
+      "fullName": "Tố Hữu",
+      "age": 43,
+      "address": "Thừa Thiên Huế"
+    },
+    {
+      "id": "45",
+      "customerCode": "KH045",
+      "fullName": "Nguyễn Đình Chiểu",
+      "age": 52,
+      "address": "Bến Tre"
+    },
+    {
+      "id": "46",
+      "customerCode": "KH046",
+      "fullName": "Nam Cao",
+      "age": 30,
+      "address": "Hà Nam"
+    },
+    {
+      "id": "47",
+      "customerCode": "KH047",
+      "fullName": "Thạch Lam",
+      "age": 35,
+      "address": "Hải Dương"
+    },
+    {
+      "id": "48",
+      "customerCode": "KH048",
+      "fullName": "Ngô Tất Tố",
+      "age": 41,
+      "address": "Bắc Ninh"
+    },
+    {
+      "id": "49",
+      "customerCode": "KH049",
+      "fullName": "Vũ Trọng Phụng",
+      "age": 27,
+      "address": "Mỹ Hào"
+    },
+    {
+      "id": "50",
+      "customerCode": "KH050",
+      "fullName": "Nguyễn Tuân",
+      "age": 17,
+      "address": "Thanh Xuân",
+      "guardianName": "Nguyễn Văn T",
+      "guardianPhone": "0999888777"
+    },
+    {
+      "id": "51",
+      "customerCode": "KH051",
+      "fullName": "Tô Hoài",
+      "age": 58,
+      "address": "Hà Đông"
+    },
+    {
+      "id": "52",
+      "customerCode": "KH052",
+      "fullName": "Hữu Thỉnh",
+      "age": 49,
+      "address": "Vĩnh Phúc"
+    },
+    {
+      "id": "53",
+      "customerCode": "KH053",
+      "fullName": "Phạm Tiến Duật",
+      "age": 36,
+      "address": "Phú Thọ"
+    },
+    {
+      "id": "54",
+      "customerCode": "KH054",
+      "fullName": "Xuân Quỳnh",
+      "age": 31,
+      "address": "Hà Đông"
+    },
+    {
+      "id": "55",
+      "customerCode": "KH055",
+      "fullName": "Lưu Quang Vũ",
+      "age": 33,
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": "56",
+      "customerCode": "KH056",
+      "fullName": "Đỗ Phủ",
+      "age": 25,
+      "address": "Hưng Yên"
+    },
+    {
+      "id": "57",
+      "customerCode": "KH057",
+      "fullName": "Lý Bạch",
+      "age": 23,
+      "address": "Cao Bằng"
+    },
+    {
+      "id": "58",
+      "customerCode": "KH058",
+      "fullName": "Bạch Cư Dị",
+      "age": 13,
+      "address": "Sơn La",
+      "guardianName": "Bạch Văn C",
+      "guardianPhone": "0777666555"
+    },
+    {
+      "id": "59",
+      "customerCode": "KH059",
+      "fullName": "Vương Duy",
+      "age": 29,
+      "address": "Thái Nguyên"
+    },
+    {
+      "id": "60",
+      "customerCode": "KH060",
+      "fullName": "Tô Đông Pha",
+      "age": 38,
+      "address": "Tuyên Quang"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

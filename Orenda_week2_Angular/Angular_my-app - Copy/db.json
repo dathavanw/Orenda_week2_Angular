@@ -1,0 +1,68 @@
+{
+  "customers": [
+    {
+      "id": "4",
+      "customerCode": "KH004",
+      "fullName": "Phạm Thanh Thảo",
+      "age": 28,
+      "address": "Cần Thơ"
+    },
+    {
+      "id": "5",
+      "customerCode": "KH005",
+      "fullName": "Hoàng Văn Đức",
+      "age": 35,
+      "address": "Hải Phòng"
+    },
+    {
+      "id": "6",
+      "customerCode": "KH006",
+      "fullName": "Đặng Minh Anh",
+      "age": 19,
+      "address": "Huế"
+    },
+    {
+      "customerCode": "KH009",
+      "fullName": "Vũ Tuyết Mai",
+      "age": 56,
+      "address": "Quảng Ninh 9",
+      "id": "9"
+    },
+    {
+      "id": "10",
+      "customerCode": "KH010",
+      "fullName": "Lý Gia Hưng",
+      "age": 24,
+      "address": "Đồng Nai"
+    },
+    {
+      "customerCode": "KH002",
+      "fullName": "Nguyễn Văn Cung",
+      "age": 23,
+      "address": "Nam Định",
+      "id": "mZlijNUpx0M"
+    },
+    {
+      "customerCode": "KH0022",
+      "fullName": "Phạm Thị Ngoan ",
+      "age": 24,
+      "address": "Lạng Sơn",
+      "id": "FOeZXmOmzsg"
+    },
+    {
+      "customerCode": "KH12",
+      "fullName": "Nguyễn Văn Ba",
+      "age": 44,
+      "address": "Ninh Bình",
+      "id": "Xz8jh9WijWo"
+    },
+    {
+      "customerCode": "KH123",
+      "fullName": "Phạm Thị Vân Anh",
+      "age": 58,
+      "address": "Hà Nam ",
+      "id": "L71NMCgsLFo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,50 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+}
+
+.table-card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.header-group {
+    margin-bottom: 30px;
+}
+
+.iconDelete {
+    color: red;
+}
+
+.warningCustomerCode {
+    color: #ff4d4f;
+}
+
+.CodeCustomerDetail {
+    color: #1890ff;
+}
+
+.PopupDeleteCustomer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inconWarringInPopupConfirmDelete {
+    font-size: 24px;
+    color: #df3838;
+}
+
+.textConfirDelete {
+    margin: 0;
+    font-weight: 500;
+}
+
+.PopupViewCustomerDetail {
+    margin-top: 20px;
+    text-align: right;
+}

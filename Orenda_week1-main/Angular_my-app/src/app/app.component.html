@@ -1,0 +1,175 @@
+<div class="table-container">
+  <div class="table-card">
+    <div class="header-group">
+      <h2 class="TitleCustomer">Danh sách khách hàng</h2>
+      <button nz-button nzSize="large" nzType="primary" (click)="prepareAdd()">
+        <span nz-icon nzType="plus"></span> Thêm khách hàng
+      </button>
+    </div>
+    <nz-table #basicTable [nzData]="displayData" [nzFrontPagination]="false" [nzLoading]="loading" [nzTotal]="total"
+      [nzPageSize]="pageSize" [(nzPageIndex)]="pageIndex" (nzPageIndexChange)="loadDataFromServer($event, pageSize)"
+      nzSize="middle" nzBordered>
+
+      <thead>
+        <tr>
+          <th>Mã khách hàng</th>
+          <th>Họ và tên</th>
+          <th>Tuổi</th>
+          <th>Địa chỉ</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.customerCode }}</td>
+          <td>{{ data.fullName }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <span (click)="viewCustomerDetail(data)" nz-icon nzType="eye"></span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span (click)="editCustomer(data)" nz-icon nzType="edit"></span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span class="iconDelete" (click)="showDeleteModal(data.id)" nz-icon nzType="delete"></span>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" [nzTitle]="isEdit ? 'Sửa thông tin khách hàng' : 'Thêm mới khách hàng'"
+  [nzWidth]="800" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzOkText="Lưu">
+  <ng-container *nzModalContent>
+    <form nz-form #customerForm="ngForm" nzLayout="vertical">
+      <nz-form-item>
+        <nz-form-label nzRequired>Mã khách hàng</nz-form-label>
+        <nz-form-control [nzErrorTip]="codeErrorTpl">
+          <input nz-input name="customerCode" [(ngModel)]="cus.customerCode" [disabled]="isEdit" required
+            placeholder="Ví dụ: KH011" />
+          <ng-template #codeErrorTpl let-control>
+            @if (control.hasError('required')) {
+            <span>Vui lòng không để trống mã!</span>
+            }
+
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzRequired>Họ và tên</nz-form-label>
+        <nz-form-control nzErrorTip="Vui lòng nhập họ tên!">
+          <input nz-input name="fullName" [(ngModel)]="cus.fullName" required placeholder="Nhập tên khách hàng" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <div nz-row [nzGutter]="16">
+        <div nz-col nzSpan="8">
+          <nz-form-item>
+            <nz-form-label nzRequired>Tuổi</nz-form-label>
+            <nz-form-control nzErrorTip="Nhập tuổi!" [nzExtra]="ageNoteTpl">
+              <nz-input-number name="age" [(ngModel)]="cus.age" required [nzMin]="1" [nzMax]="150"
+                style="width: 100%;"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div nz-col nzSpan="16">
+          <nz-form-item>
+            <nz-form-label nzRequired>Địa chỉ</nz-form-label>
+            <nz-form-control nzErrorTip="Nhập địa chỉ!">
+              <input nz-input name="address" [(ngModel)]="cus.address" required placeholder="Thành phố..." />
+              <ng-template #ageNoteTpl>
+                <div class="tuoi">
+                  <span nz-icon nzType="info-circle"></span>
+                  Dưới 18 tuổi cần bổ sung Họ Tên và <br> Số điện thoại người giám hộ.
+                </div>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+      <div nz-row [nzGutter]="16" *ngIf="cus.age < 18">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label nzRequired>Tên người giám hộ</nz-form-label>
+            <nz-form-control nzErrorTip="Vui lòng nhập tên người giám hộ!">
+              <input nz-input name="guardianName" [(ngModel)]="cus.guardianName" required
+                placeholder="Họ và tên người giám hộ" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label nzRequired>Số điện thoại người giám hộ</nz-form-label>
+            <nz-form-control [nzErrorTip]="phoneErrorTpl">
+              <input nz-input name="guardianPhone" [(ngModel)]="cus.guardianPhone" required pattern="^[0-9]*$"
+                inputmode="numeric" placeholder="Số điện thoại" />
+              <ng-template #phoneErrorTpl let-control>
+                @if (control.hasError('required')) {
+                <span>Vui lòng nhập SĐT người giám hộ!</span>
+                }
+                @if (control.hasError('pattern')) {
+                <span>Số điện thoại chỉ được chứa các chữ số!</span>
+                }
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="isVisibleDelete" nzTitle="Xác nhận hành động" (nzOnCancel)="handleCancelDelete()"
+  (nzOnOk)="handleOkDelete()" nzOkText="Đồng ý xóa" nzCancelText="Bỏ qua" [nzOkDanger]="true">
+  <ng-container *nzModalContent>
+    <div class="PopupDeleteCustomer">
+      <span class="inconWarringInPopupConfirmDelete" nz-icon nzType="warning" nzTheme="outline"></span>
+      <p class="textConfirDelete">
+        Bạn có chắc chắn muốn xóa khách hàng này không? Hành động này không thể hoàn tác.
+      </p>
+    </div>
+  </ng-container>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="isVisibleDetail" nzTitle="Thông tin chi tiết khách hàng" (nzOnCancel)="handleCloseDetail()"
+  [nzFooter]="null">
+  <ng-container *nzModalContent>
+    <div *ngIf="selectedCustomer">
+      <nz-descriptions nzBordered [nzColumn]="1">
+        <nz-descriptions-item nzTitle="Mã khách hàng">
+          <strong class="CodeCustomerDetail">{{ selectedCustomer.customerCode }}</strong>
+        </nz-descriptions-item>
+
+        <nz-descriptions-item nzTitle="Họ và tên">
+          {{ selectedCustomer.fullName }}
+        </nz-descriptions-item>
+
+        <nz-descriptions-item nzTitle="Tuổi">
+          {{ selectedCustomer.age }} tuổi
+        </nz-descriptions-item>
+
+        <nz-descriptions-item nzTitle="Địa chỉ">
+          {{ selectedCustomer.address }}
+        </nz-descriptions-item>
+
+        <nz-descriptions-item nzTitle="Tên người giám hộ">
+          {{ selectedCustomer.guardianName }}
+        </nz-descriptions-item>
+
+        <nz-descriptions-item nzTitle="Số điện thoại người giám hộ">
+          {{ selectedCustomer.guardianPhone }}
+        </nz-descriptions-item>
+      </nz-descriptions>
+
+      <div class="PopupViewCustomerDetail">
+        <button nz-button nzType="primary" (click)="handleCloseDetail()">Đóng lại</button>
+      </div>
+    </div>
+  </ng-container>
+</nz-modal>
